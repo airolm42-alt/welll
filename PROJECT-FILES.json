@@ -1,0 +1,596 @@
+{
+  "format": "arabic-real-estate-delivery-v1",
+  "framework": "Next.js App Router",
+  "requiresNodeServer": true,
+  "includesRuntimeData": false,
+  "maintenance": "Reviewed required source paths. Update intentionally when adding or removing application features; never auto-regenerate to hide a missing file.",
+  "files": [
+    ".env.example",
+    ".gitignore",
+    ".nvmrc",
+    "AUDIT-REPORT-AR.md",
+    "DEPLOYMENT-AR.md",
+    "PROJECT-FILES.json",
+    "README.md",
+    "START-HERE.html",
+    "drizzle.config.ts",
+    "eslint.config.mjs",
+    "next-env.d.ts",
+    "next.config.ts",
+    "package-lock.json",
+    "package.json",
+    "postcss.config.mjs",
+    "public/.gitkeep",
+    "public/favicon.svg",
+    "scripts/audit-browser.mjs",
+    "scripts/audit-core.ts",
+    "scripts/check-deployment.mjs",
+    "scripts/check-source.mjs",
+    "scripts/export-project.ts",
+    "scripts/project-contract.mjs",
+    "scripts/seed.ts",
+    "scripts/verify-download.mjs",
+    "src/app/(site)/about/page.tsx",
+    "src/app/(site)/contact/page.tsx",
+    "src/app/(site)/layout.tsx",
+    "src/app/(site)/page.tsx",
+    "src/app/(site)/privacy/page.tsx",
+    "src/app/(site)/properties/[slug]/page.tsx",
+    "src/app/(site)/properties/page.tsx",
+    "src/app/(site)/services/page.tsx",
+    "src/app/(site)/terms/page.tsx",
+    "src/app/admin/(auth)/login/page.tsx",
+    "src/app/admin/(panel)/about/page.tsx",
+    "src/app/admin/(panel)/account/page.tsx",
+    "src/app/admin/(panel)/areas/page.tsx",
+    "src/app/admin/(panel)/business/page.tsx",
+    "src/app/admin/(panel)/dashboard/page.tsx",
+    "src/app/admin/(panel)/diagnostics/page.tsx",
+    "src/app/admin/(panel)/inquiries/page.tsx",
+    "src/app/admin/(panel)/layout.tsx",
+    "src/app/admin/(panel)/media/page.tsx",
+    "src/app/admin/(panel)/properties/[id]/page.tsx",
+    "src/app/admin/(panel)/properties/new/page.tsx",
+    "src/app/admin/(panel)/properties/page.tsx",
+    "src/app/admin/(panel)/publishing/page.tsx",
+    "src/app/admin/(panel)/reviews/page.tsx",
+    "src/app/admin/(panel)/seo/page.tsx",
+    "src/app/admin/(panel)/services/page.tsx",
+    "src/app/admin/(panel)/settings/page.tsx",
+    "src/app/admin/(panel)/team/page.tsx",
+    "src/app/admin/(panel)/types/page.tsx",
+    "src/app/admin/page.tsx",
+    "src/app/api/admin/account/route.ts",
+    "src/app/api/admin/areas/[id]/route.ts",
+    "src/app/api/admin/areas/route.ts",
+    "src/app/api/admin/inquiries/[id]/route.ts",
+    "src/app/api/admin/inquiries/route.ts",
+    "src/app/api/admin/login/route.ts",
+    "src/app/api/admin/logout/route.ts",
+    "src/app/api/admin/media/route.ts",
+    "src/app/api/admin/properties/[id]/route.ts",
+    "src/app/api/admin/properties/route.ts",
+    "src/app/api/admin/publishing/guide/route.ts",
+    "src/app/api/admin/publishing/route.ts",
+    "src/app/api/admin/publishing/source/route.ts",
+    "src/app/api/admin/services/[id]/route.ts",
+    "src/app/api/admin/services/route.ts",
+    "src/app/api/admin/session/route.ts",
+    "src/app/api/admin/settings/route.ts",
+    "src/app/api/admin/team/[id]/route.ts",
+    "src/app/api/admin/team/route.ts",
+    "src/app/api/admin/types/[id]/route.ts",
+    "src/app/api/admin/types/route.ts",
+    "src/app/api/admin/upload/route.ts",
+    "src/app/api/health/route.ts",
+    "src/app/api/inquiries/route.ts",
+    "src/app/error.tsx",
+    "src/app/global-error.tsx",
+    "src/app/globals.css",
+    "src/app/layout.tsx",
+    "src/app/not-found.tsx",
+    "src/app/robots.ts",
+    "src/app/sitemap.ts",
+    "src/app/uploads/[...path]/route.ts",
+    "src/components/admin/account-forms.tsx",
+    "src/components/admin/admin-shell.tsx",
+    "src/components/admin/image-upload.tsx",
+    "src/components/admin/inquiries-table.tsx",
+    "src/components/admin/login-form.tsx",
+    "src/components/admin/managers.tsx",
+    "src/components/admin/media-manager.tsx",
+    "src/components/admin/properties-table.tsx",
+    "src/components/admin/property-form.tsx",
+    "src/components/admin/publishing-panel.tsx",
+    "src/components/admin/settings-forms.tsx",
+    "src/components/admin/team-manager.tsx",
+    "src/components/site/contact-form.tsx",
+    "src/components/site/footer.tsx",
+    "src/components/site/gallery.tsx",
+    "src/components/site/header.tsx",
+    "src/components/site/hero-search.tsx",
+    "src/components/site/property-card.tsx",
+    "src/components/site/property-filters.tsx",
+    "src/components/site/reviews-section.tsx",
+    "src/components/site/section-heading.tsx",
+    "src/components/site/share-property.tsx",
+    "src/components/site/social-icons.tsx",
+    "src/components/site/whatsapp-float.tsx",
+    "src/components/ui.tsx",
+    "src/components/use-dialog.ts",
+    "src/db/index.ts",
+    "src/db/schema.ts",
+    "src/lib/auth.ts",
+    "src/lib/ensure-admin.ts",
+    "src/lib/http.ts",
+    "src/lib/input-safety.ts",
+    "src/lib/media-references.ts",
+    "src/lib/property-mutations.ts",
+    "src/lib/public-data.ts",
+    "src/lib/rate-limit.ts",
+    "src/lib/settings.ts",
+    "src/lib/site-origin.ts",
+    "src/lib/site-url.ts",
+    "src/lib/source-export.ts",
+    "src/lib/uploads-dir.ts",
+    "src/lib/utils.ts",
+    "src/lib/validators.ts",
+    "src/proxy.ts",
+    "tsconfig.json"
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "kind": "page",
+      "file": "src/app/(site)/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/about",
+      "kind": "page",
+      "file": "src/app/(site)/about/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/admin",
+      "kind": "page",
+      "file": "src/app/admin/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/admin/about",
+      "kind": "page",
+      "file": "src/app/admin/(panel)/about/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/admin/account",
+      "kind": "page",
+      "file": "src/app/admin/(panel)/account/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/admin/areas",
+      "kind": "page",
+      "file": "src/app/admin/(panel)/areas/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/admin/business",
+      "kind": "page",
+      "file": "src/app/admin/(panel)/business/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/admin/dashboard",
+      "kind": "page",
+      "file": "src/app/admin/(panel)/dashboard/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/admin/diagnostics",
+      "kind": "page",
+      "file": "src/app/admin/(panel)/diagnostics/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/admin/inquiries",
+      "kind": "page",
+      "file": "src/app/admin/(panel)/inquiries/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/admin/login",
+      "kind": "page",
+      "file": "src/app/admin/(auth)/login/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/admin/media",
+      "kind": "page",
+      "file": "src/app/admin/(panel)/media/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/admin/properties",
+      "kind": "page",
+      "file": "src/app/admin/(panel)/properties/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/admin/properties/[id]",
+      "kind": "page",
+      "file": "src/app/admin/(panel)/properties/[id]/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/admin/properties/new",
+      "kind": "page",
+      "file": "src/app/admin/(panel)/properties/new/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/admin/publishing",
+      "kind": "page",
+      "file": "src/app/admin/(panel)/publishing/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/admin/reviews",
+      "kind": "page",
+      "file": "src/app/admin/(panel)/reviews/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/admin/seo",
+      "kind": "page",
+      "file": "src/app/admin/(panel)/seo/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/admin/services",
+      "kind": "page",
+      "file": "src/app/admin/(panel)/services/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/admin/settings",
+      "kind": "page",
+      "file": "src/app/admin/(panel)/settings/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/admin/team",
+      "kind": "page",
+      "file": "src/app/admin/(panel)/team/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/admin/types",
+      "kind": "page",
+      "file": "src/app/admin/(panel)/types/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/admin/account",
+      "kind": "handler",
+      "file": "src/app/api/admin/account/route.ts",
+      "methods": [
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/admin/areas",
+      "kind": "handler",
+      "file": "src/app/api/admin/areas/route.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/admin/areas/[id]",
+      "kind": "handler",
+      "file": "src/app/api/admin/areas/[id]/route.ts",
+      "methods": [
+        "DELETE",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/admin/inquiries",
+      "kind": "handler",
+      "file": "src/app/api/admin/inquiries/route.ts",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/admin/inquiries/[id]",
+      "kind": "handler",
+      "file": "src/app/api/admin/inquiries/[id]/route.ts",
+      "methods": [
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/admin/login",
+      "kind": "handler",
+      "file": "src/app/api/admin/login/route.ts",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/admin/logout",
+      "kind": "handler",
+      "file": "src/app/api/admin/logout/route.ts",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/admin/media",
+      "kind": "handler",
+      "file": "src/app/api/admin/media/route.ts",
+      "methods": [
+        "DELETE",
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/admin/properties",
+      "kind": "handler",
+      "file": "src/app/api/admin/properties/route.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/admin/properties/[id]",
+      "kind": "handler",
+      "file": "src/app/api/admin/properties/[id]/route.ts",
+      "methods": [
+        "DELETE",
+        "PATCH",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/admin/publishing",
+      "kind": "handler",
+      "file": "src/app/api/admin/publishing/route.ts",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/admin/publishing/guide",
+      "kind": "handler",
+      "file": "src/app/api/admin/publishing/guide/route.ts",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/admin/publishing/source",
+      "kind": "handler",
+      "file": "src/app/api/admin/publishing/source/route.ts",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/admin/services",
+      "kind": "handler",
+      "file": "src/app/api/admin/services/route.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/admin/services/[id]",
+      "kind": "handler",
+      "file": "src/app/api/admin/services/[id]/route.ts",
+      "methods": [
+        "DELETE",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/admin/session",
+      "kind": "handler",
+      "file": "src/app/api/admin/session/route.ts",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/admin/settings",
+      "kind": "handler",
+      "file": "src/app/api/admin/settings/route.ts",
+      "methods": [
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/admin/team",
+      "kind": "handler",
+      "file": "src/app/api/admin/team/route.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/admin/team/[id]",
+      "kind": "handler",
+      "file": "src/app/api/admin/team/[id]/route.ts",
+      "methods": [
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "path": "/api/admin/types",
+      "kind": "handler",
+      "file": "src/app/api/admin/types/route.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/admin/types/[id]",
+      "kind": "handler",
+      "file": "src/app/api/admin/types/[id]/route.ts",
+      "methods": [
+        "DELETE",
+        "PUT"
+      ]
+    },
+    {
+      "path": "/api/admin/upload",
+      "kind": "handler",
+      "file": "src/app/api/admin/upload/route.ts",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/api/health",
+      "kind": "handler",
+      "file": "src/app/api/health/route.ts",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/api/inquiries",
+      "kind": "handler",
+      "file": "src/app/api/inquiries/route.ts",
+      "methods": [
+        "POST"
+      ]
+    },
+    {
+      "path": "/contact",
+      "kind": "page",
+      "file": "src/app/(site)/contact/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/privacy",
+      "kind": "page",
+      "file": "src/app/(site)/privacy/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/properties",
+      "kind": "page",
+      "file": "src/app/(site)/properties/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/properties/[slug]",
+      "kind": "page",
+      "file": "src/app/(site)/properties/[slug]/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/robots.txt",
+      "kind": "metadata",
+      "file": "src/app/robots.ts",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/services",
+      "kind": "page",
+      "file": "src/app/(site)/services/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/sitemap.xml",
+      "kind": "metadata",
+      "file": "src/app/sitemap.ts",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/terms",
+      "kind": "page",
+      "file": "src/app/(site)/terms/page.tsx",
+      "methods": [
+        "GET"
+      ]
+    },
+    {
+      "path": "/uploads/[...path]",
+      "kind": "handler",
+      "file": "src/app/uploads/[...path]/route.ts",
+      "methods": [
+        "GET"
+      ]
+    }
+  ]
+}

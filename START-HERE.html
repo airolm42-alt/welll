@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>ابدأ هنا — دليل تشغيل ملفات الموقع</title>
+  <style>
+    :root{color-scheme:light}*{box-sizing:border-box}body{margin:0;background:#faf8f4;color:#14201c;font-family:Tahoma,Arial,sans-serif;line-height:1.9}.page{max-width:880px;margin:48px auto;padding:0 20px}header{background:#113329;color:#fff;padding:32px;border-radius:24px}header small{color:#ddb96f;font-weight:700}h1{margin:8px 0 12px;font-size:clamp(24px,5vw,34px)}h2{font-size:20px;margin-top:0}p{margin:10px 0}section{margin-top:20px;padding:26px;border:1px solid #e0e3dc;border-radius:20px;background:white}.notice{border-color:#ead5a5;background:#fbf7ee}code{font-family:monospace;background:#f1ede4;color:#113329;border-radius:6px;padding:3px 7px;unicode-bidi:isolate}pre{overflow-x:auto;direction:ltr;text-align:left;border:1px solid #d9ebe3;background:#f0f7f4;padding:16px;border-radius:12px;line-height:1.8}pre code{background:transparent;padding:0}li{margin:9px 0}a{color:#276755;font-weight:700}footer{padding:20px 0;color:#58655f;font-size:13px}dt{font-weight:700}dd{margin:3px 0 14px;color:#445650}@media(max-width:500px){.page{margin:20px auto;padding:0 12px}header,section{padding:20px}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header><small>دليل محلي مرفق مع ملفات المصدر</small><h1>الملفات موجودة. التشغيل يحتاج خادمًا.</h1><p>هذه الصفحة دليل فقط؛ ليست الموقع العقاري، وليست لوحة الإدارة، ولا تتصل بقاعدة بياناتك.</p></header>
+    <section class="notice"><h2>عدم وجود index.html لا يعني أن التنزيل ناقص</h2><p>المشروع مبني على <strong>Next.js</strong>. الصفحة الرئيسية في <code dir="ltr">src/app/(site)/page.tsx</code>، وليست <code dir="ltr">index.html</code> أو <code dir="ltr">indx.html</code>. لا يعمل التطبيق بالنقر المزدوج على ملف، ولا على استضافة HTML ثابتة فقط.</p></section>
+    <section><h2>١. تأكد من كل ملفات النسخة</h2><p>فك ZIP بالكامل، ثم افتح الطرفية داخل مجلد <code dir="ltr">arabic-real-estate</code> الذي يحتوي على <code dir="ltr">package.json</code>. بعد تثبيت Node.js، شغّل:</p><pre><code>node scripts/verify-download.mjs
+node scripts/check-deployment.mjs --files-only</code></pre><p>قائمة <code dir="ltr">PROJECT-FILES.json</code> تضم ملفات التسليم والمسارات المطلوبة. بعد تثبيت الحزم شغّل <code dir="ltr">node scripts/check-source.mjs</code> لفحص الاستيرادات والحزم ومسارات التطبيق. التحميل الكامل يحتفظ بالملفات المخفية الآمنة.</p><p>التحقق الأول يراجع كل ملف مقابل قائمة <code dir="ltr">PROJECT-MANIFEST.json</code> المرفقة وبصماته. نفّذه قبل تعديل أي ملفات. تأكد من إظهار الملفات المخفية مثل <code dir="ltr">.env.example</code> و<code dir="ltr">.gitignore</code>.</p></section>
+    <section><h2>٢. جهّز الإعدادات وشغّل التطبيق</h2><ol><li>ثبّت Node.js 22 LTS وجهّز PostgreSQL.</li><li>شغّل <code dir="ltr">npm ci --include=dev</code> لتثبيت الحزم من ملف القفل.</li><li>انسخ <code dir="ltr">.env.example</code> إلى <code dir="ltr">.env</code> وأدخل اتصال قاعدة البيانات وسر الجلسة وبيانات تهيئة المالك الخاصة بك. لا تستخدم أسرارًا أو كلمة مرور افتراضية منشورة.</li><li>شغّل الأوامر التالية لإنشاء الجداول ثم تهيئة المالك ثم التطوير المحلي:</li></ol><pre><code>npx drizzle-kit push --config=drizzle.config.ts
+npx tsx scripts/seed.ts
+npm run dev</code></pre><p>بعد بدء الخادم افتح <a href="http://localhost:3000" target="_blank" rel="noopener noreferrer">الموقع على localhost:3000</a>، وللدخول افتح <a href="http://localhost:3000/admin" target="_blank" rel="noopener noreferrer">لوحة الإدارة</a>. هذه الروابط لا تعمل قبل تشغيل الخادم على جهازك.</p></section>
+    <section><h2>٣. ما الذي لا يدخل في حزمة المصدر؟</h2><dl><dt>node_modules و.next</dt><dd>يتولّدان عند تثبيت الحزم والبناء؛ عدم وجودهما طبيعي.</dd><dt>ملف .env والأسرار</dt><dd>غير مرفقة لحمايتك. القالب الفارغ فقط هو الذي يدخل في الحزمة.</dd><dt>قاعدة البيانات وصور uploads</dt><dd>تحتاج نقلًا ونسخًا احتياطيًا منفصلًا وآمنًا. حزمة المصدر ليست نسخة احتياطية لمعلومات العملاء.</dd></dl></section>
+    <section><h2>للنشر على الإنترنت</h2><p>استخدم استضافة Node.js مع PostgreSQL وتخزين صور دائم. اقرأ <a href="README.md">README.md</a> و<a href="DEPLOYMENT-AR.md">دليل النشر العربي</a>؛ لا ترفع هذه الملفات باعتبارها موقعًا ثابتًا جاهزًا.</p><p>حزمة ZIP تُنزّل من قسم «النشر والروابط» بحساب المالك، ولا تقوم بالنشر أو شراء دومين.</p></section>
+    <footer>يمكن فتح هذا الدليل بدون إنترنت. التفاصيل والأوامر لا تحتوي بيانات دخول حقيقية.</footer>
+  </main>
+</body>
+</html>

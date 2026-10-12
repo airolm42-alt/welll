@@ -1,0 +1,27 @@
+# Dependencies and generated build output
+node_modules/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+*.log
+
+# Private configuration: only the empty template is safe to commit
+.env
+.env.*
+!.env.example
+
+# Runtime image uploads and private source bundles are not public Git assets
+uploads/
+exports/
+# Manifest is generated inside each download, not maintained as live source
+/PROJECT-MANIFEST.json
+
+# Local tooling and session artifacts
+.vercel/
+.railway/
+.DS_Store
+/l.txt
+/*.cookies
+
+# Keep package-lock.json, public/ and scripts/ in the deployment repository.
